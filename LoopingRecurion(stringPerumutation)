@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+void peru(string s, int start, int end)
+{
+    if(start >= end)
+    {
+        cout<<s<<endl;
+        return;
+    }
+    for(int i = start; i <= end ; i++)
+    {   
+        //no need of using two for loops and first here e are fixing i and swaping and calling recusion and for i it will generate all
+        //perumuations
+        swap(s[start],s[i]);
+        peru(s,start+1,end);
+        swap(s[start],s[i]);//after the generation we are making it normal for doing the process for next one.
+    }
+}
+int main()
+{
+    string s;
+    cin>>s;
+    peru(s,0,s.size()-1);
+}
+
+
+
+//Description:
+perumutations ante oka dani fix chesi second danitho swap chestam.
