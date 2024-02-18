@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+void gen( int close ,int open ,string s, int n)
+{
+    if(open+close >= n*2)
+    {
+        cout<<s<<endl;
+        return;
+    }
+    if(close > open) return;
+    if(open==n)
+    {
+        gen(close+1,open,s+")",n);
+    }
+    else{
+        gen(close,open+1,s+"(",n);
+        gen(close+1,open,s+")",n);
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    gen(0,1,"(",n);
+}
